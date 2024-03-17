@@ -26,7 +26,8 @@ MainWindow::MainWindow(QWidget *parent)
     server = new Myserver();
     connect(server, &Myserver::msgFromMyServerToMainWindow, this, &MainWindow::msgFromMyServerToMainWindowHandler);
 
-    if (!server->listen(QHostAddress::Any, 50000)) {
+    if (!server->listen(QHostAddress::Any, 50000))
+    {
         ui->textEdit->setText("Server could not start:" + server->errorString());
     }
     ui->textEdit->setText("Server started\n");
